@@ -1,8 +1,8 @@
 package dragonsandflagons.core.character.characterclass;
 
 import dragonsandflagons.core.character.abilities.Ability;
-import dragonsandflagons.core.character.equipment.ArmorType;
-import dragonsandflagons.core.character.equipment.WeaponType;
+import dragonsandflagons.core.character.items.armor.ArmorType;
+import dragonsandflagons.core.character.items.weapon.WeaponType;
 import dragonsandflagons.core.dice.Dice;
 
 import java.util.List;

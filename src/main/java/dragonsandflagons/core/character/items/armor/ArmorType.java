@@ -1,4 +1,4 @@
-package dragonsandflagons.core.character.equipment;
+package dragonsandflagons.core.character.items.armor;
 
 public enum ArmorType {
     LIGHT ("Light"), MEDIUM ("Medium"), HEAVY ("Heavy");
@@ -13,10 +13,4 @@ public enum ArmorType {
         return this.armorType;
     }
 
-  public static void main(String[] args) {
-    //
-      ArmorType armorType = ArmorType.HEAVY;
-      System.out.println(armorType.getArmorType());
-
-  }
 }

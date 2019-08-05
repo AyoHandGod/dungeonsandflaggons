@@ -1,4 +1,4 @@
-package dragonsandflagons.core.character;
+package dragonsandflagons.core.character.race;
 
 public enum Alignment {
     LAWFUL_GOOD ("LG"), NEUTRAL_GOOD ("NG"), CHAOTIC_GOOD ("CG"), LAWFUL_NEUTRAL ("LN"), NEUTRAL ("N"),
