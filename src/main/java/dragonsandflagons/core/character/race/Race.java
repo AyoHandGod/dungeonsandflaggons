@@ -1,11 +1,11 @@
 package dragonsandflagons.core.character.race;
 
 import dragonsandflagons.core.character.Language;
-import dragonsandflagons.core.character.abilities.Ability;
+import dragonsandflagons.core.character.abilities.AbilityType;
 import dragonsandflagons.core.character.effect.traits.Trait;
-import jdk.internal.net.http.common.Pair;
 
 import java.util.List;
+import java.util.Map;
 
 public abstract class Race {
     private RaceType raceType;
@@ -15,7 +15,7 @@ public abstract class Race {
     private Size size;
     private int racialSpeed;
     private List<Language> typicalLanguages;
-    private Pair<Ability, Integer> abilityScoreIncrease;
+    private Map<AbilityType, Integer> abilityScoreIncrease;
     private List<Trait> racialTraits;
 
     public RaceType getRaceType() {
@@ -46,8 +46,11 @@ public abstract class Race {
         return this.raceName;
     }
 
-    public Pair<Ability, Integer> getAbilityScoreIncrease() {
-        return abilityScoreIncrease;
+    public int getAbilityScoreIncrease(AbilityType abilityType) {
+        if(!abilityScoreIncrease.containsKey(abilityType)){
+            return 0;
+        }
+        return abilityScoreIncrease.get(abilityType);
     }
 
     public List<Trait> getRacialTraits() {

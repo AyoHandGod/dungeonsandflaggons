@@ -1,4 +1,4 @@
-package dragonsandflagons.core.character.movement;
+package dragonsandflagons.core.gameplay.movement;
 
 public interface MovementBehavior {
 

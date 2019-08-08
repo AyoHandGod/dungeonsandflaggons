@@ -1,6 +1,6 @@
 package dragonsandflagons.core.character.characterclass;
 
-import dragonsandflagons.core.character.abilities.Ability;
+import dragonsandflagons.core.character.abilities.AbilityType;
 import dragonsandflagons.core.character.items.armor.ArmorType;
 import dragonsandflagons.core.character.items.weapon.WeaponType;
 import dragonsandflagons.core.dice.Dice;
@@ -21,9 +21,9 @@ public interface CharacterClass {
 
     public Dice getHitDie();
 
-    public List<Ability> getPrimaryAbilities();
+    public List<AbilityType> getPrimaryAbilities();
 
-    public List<Ability> getSavingThrowProficiencies();
+    public List<AbilityType> getSavingThrowProficiencies();
 
     public List<ArmorType> getArmorProficiencyList();
 

@@ -4,7 +4,7 @@ import org.junit.Test;
 
 import static org.junit.Assert.*;
 
-public class CharacterTest {
+public class CreatureTest {
 
   @Test
   public void getRace() {}

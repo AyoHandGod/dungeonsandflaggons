@@ -1,6 +1,6 @@
 package dragonsandflagons.core.character.characterclass;
 
-import dragonsandflagons.core.character.abilities.Ability;
+import dragonsandflagons.core.character.abilities.AbilityType;
 import dragonsandflagons.core.character.items.armor.ArmorType;
 import dragonsandflagons.core.character.items.weapon.WeaponType;
 import dragonsandflagons.core.dice.Dice;
@@ -14,8 +14,8 @@ public class CharacterClassBuilder {
     private int characterXP;
     private int proficienyBonus;
     private Dice hitDie;
-    private List<Ability> primaryAbilities;
-    private List<Ability> savingThrowProficiencies;
+    private List<AbilityType> primaryAbilities;
+    private List<AbilityType> savingThrowProficiencies;
     private List<ArmorType> armorProficiencyList;
     private List<WeaponType> weaponProficiencyList;
 
@@ -49,12 +49,12 @@ public class CharacterClassBuilder {
         return this;
     }
 
-    public CharacterClassBuilder setPrimaryAbilities(List<Ability> primaryAbilities) {
+    public CharacterClassBuilder setPrimaryAbilities(List<AbilityType> primaryAbilities) {
         this.primaryAbilities = primaryAbilities;
         return this;
     }
 
-    public CharacterClassBuilder setSavingThrowProficiencies(List<Ability> savingThrowProficiencies) {
+    public CharacterClassBuilder setSavingThrowProficiencies(List<AbilityType> savingThrowProficiencies) {
         this.savingThrowProficiencies = savingThrowProficiencies;
         return this;
     }

@@ -1,6 +1,6 @@
 package dragonsandflagons.core.character.abilities;
 
-public enum Ability {
+public enum AbilityType {
     STRENGTH, DEXTERITY, CONSTITUTION, CHARISMA, INTELLIGENCE, WISDOM;
 
 }

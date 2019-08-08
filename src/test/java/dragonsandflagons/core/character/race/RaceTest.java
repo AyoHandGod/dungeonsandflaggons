@@ -11,7 +11,6 @@ public class RaceTest {
 
   @BeforeClass
   public void beforeClass() {
-    race = new
   }
 
   @Test

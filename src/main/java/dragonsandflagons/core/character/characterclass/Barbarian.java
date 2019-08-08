@@ -1,6 +1,6 @@
 package dragonsandflagons.core.character.characterclass;
 
-import dragonsandflagons.core.character.abilities.Ability;
+import dragonsandflagons.core.character.abilities.AbilityType;
 import dragonsandflagons.core.character.items.armor.ArmorType;
 import dragonsandflagons.core.character.items.weapon.WeaponType;
 import dragonsandflagons.core.dice.Dice;
@@ -16,8 +16,8 @@ public class Barbarian implements CharacterClass {
     private int proficienyBonus;
 
     private Dice hitDie;
-    private List<Ability> primaryAbilities;
-    private List<Ability> savingThrowProficiencies;
+    private List<AbilityType> primaryAbilities;
+    private List<AbilityType> savingThrowProficiencies;
     private List<ArmorType> armorProficiencyList;
     private List<WeaponType> weaponProficiencyList;
 
@@ -52,12 +52,12 @@ public class Barbarian implements CharacterClass {
     }
 
     @Override
-    public List<Ability> getPrimaryAbilities() {
+    public List<AbilityType> getPrimaryAbilities() {
         return primaryAbilities;
     }
 
     @Override
-    public List<Ability> getSavingThrowProficiencies() {
+    public List<AbilityType> getSavingThrowProficiencies() {
         return savingThrowProficiencies;
     }
 
