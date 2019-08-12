@@ -42,22 +42,54 @@ public class CharacterSheetEditor {
             .getResource("CharacterSheetPDFs/DnD/CharacterSheet.pdf")
             .getFile());
 
-    public static void main(String[] args) throws IOException {
+    /**
+     * Create a fillable form copy of the provided pdf document.
+     * @param document The original pdf document to be copied.
+     * @return A fillable form copy of the provided pdf document.
+     * @throws IOException If original document not found.
+     */
+    public static PDDocument createCopyOfPDF(PDDocument document) throws IOException {
+        // Create an extra document to hold the future copy
+        PDDocument newSheet = new PDDocument();
 
-        try {
+        // Create a list of the fields and an int to iterate when we make updates
+        List<PDField> fields = new ArrayList<>();
+        int i = 0;
 
-            // Load a copy of the character sheet pdf
-            PDDocument document = PDDocument.load(CHARACTER_SHEET_ALTERNATIVE_PDF);
-            // Create an extra document to hold the future copy
-            PDDocument newSheet = new PDDocument();
+        // Grab the Fillable Fields from the PDF
+        PDDocumentCatalog docCatalog = document.getDocumentCatalog();
+        PDAcroForm pdAcroForm = docCatalog.getAcroForm();
 
-            List<PDField> fields = new ArrayList<PDField>();
-            int i = 0;
+        for (PDPage page: document.getPages()){
+            for (PDField field : pdAcroForm.getFields()) {
+                // get the fields that are check boxes.
+                fields.add(field);
+            }
+            newSheet.addPage(page);
+        }
 
-            // Grab the Fillable Fields from the PDF
-            PDDocumentCatalog docCatalog = document.getDocumentCatalog();
-            PDAcroForm pdAcroForm = docCatalog.getAcroForm();
+        // Create new PDAcroForm to apply to our new copy
+        PDAcroForm newForm = new PDAcroForm(newSheet);
+        newSheet.getDocumentCatalog().setAcroForm(newForm);
+        newForm.setFields(fields);
 
+        // Save and close new document
+        return newSheet;
+    }
+
+    /**
+     * Fill out and save a copy of the character sheet document provided.
+     * @param characterSheet the original character sheet pdf document.
+     * @throws IOException If original document not found.
+     */
+    public static void fillOutCharacterSheet(PDDocument characterSheet) throws IOException {
+        PDDocument characterSheetCopy = createCopyOfPDF(characterSheet);
+
+        // Grab the Fillable Fields from the PDF
+        PDDocumentCatalog docCatalog = characterSheetCopy.getDocumentCatalog();
+        PDAcroForm pdAcroForm = docCatalog.getAcroForm();
+
+        for (PDPage page: characterSheetCopy.getPages()){
             for (PDField field : pdAcroForm.getFields()) {
 
                 PDField fieldCopy = field;
@@ -65,36 +97,25 @@ public class CharacterSheetEditor {
                 if (!field.getFieldType().equalsIgnoreCase("btn")) {
                     field.setValue(JOptionPane.showInputDialog("Enter value for: "
                             + field.getPartialName()));
-                    field.setPartialName(field.getPartialName() + i++);
-                    List<PDPage> pages = doc
+                    field.setPartialName(field.getPartialName());
                 }
-
-                //System.out.println(field.getFieldType());
-
-//            String response = JOptionPane.showInputDialog("Please enter your characters " + field.getPartialName());
-//            JFrame frame = new JFrame();
-//            frame.add(new JCheckBox("A check box"));
-//            frame.setVisible(true);
-//            field.setValue(response);
-//            System.out.println(field.getPartialName());
-//            System.out.println(" : " +field.getValueAsString());
             }
+        }
 
-            for (PDPage page : document.getPages()) {
-                newSheet.addPage(page);
-            }
+        characterSheetCopy.save("NewSheetFilled.pdf");
+        characterSheetCopy.close();
+    }
 
-            System.out.println(document.getNumberOfPages());
+    public static void main(String[] args) throws IOException {
 
-            newSheet.save("NewSheet.pdf");
+        PDDocument document = PDDocument.load(CHARACTER_SHEET_ALTERNATIVE_PDF);
 
-            document.close();
-            newSheet.close();
+        try {
+            fillOutCharacterSheet(document);
         } catch (IOException e) {
             System.out.println("File not found at " + e);
         }
 
     }
-
 
 }
