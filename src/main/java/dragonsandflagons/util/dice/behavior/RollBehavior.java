@@ -1,6 +1,4 @@
-package dragonsandflagons.core.dice.behavior;
-
-import java.util.Random;
+package dragonsandflagons.util.dice.behavior;
 
 public interface RollBehavior {
 

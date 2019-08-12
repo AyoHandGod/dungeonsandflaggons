@@ -3,7 +3,7 @@ package dragonsandflagons.core.character.characterclass;
 import dragonsandflagons.core.character.abilities.AbilityType;
 import dragonsandflagons.core.character.items.armor.ArmorType;
 import dragonsandflagons.core.character.items.weapon.WeaponType;
-import dragonsandflagons.core.dice.Dice;
+import dragonsandflagons.util.dice.Dice;
 
 import java.util.List;
 

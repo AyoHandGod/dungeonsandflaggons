@@ -1,4 +1,4 @@
-package dragonsandflagons.core.dice.behavior;
+package dragonsandflagons.util.dice.behavior;
 
 import java.util.Random;
 

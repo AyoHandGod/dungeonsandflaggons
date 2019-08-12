@@ -1,8 +1,6 @@
 package dragonsandflagons.core.character.abilities;
 
-import com.sun.tools.javac.code.Attribute;
-import dragonsandflagons.core.dice.D6;
-import dragonsandflagons.core.dice.Dice;
+import dragonsandflagons.util.dice.Dice;
 
 import java.util.Map;
 
@@ -15,7 +13,7 @@ public class AbilityManagerBuilder {
     }
 
     public static int[] rollAbilityScoreOptions() {
-        Dice dice = new D6();
+        Dice dice = new Dice();
         int[] scores = new int[6];
 
         for(int i = 0; i < scores.length; i++){

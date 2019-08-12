@@ -1,8 +1,6 @@
-package dragonsandflagons.core.dice.behavior;
+package dragonsandflagons.util.dice.behavior;
 
 import org.junit.Test;
-
-import static org.junit.Assert.*;
 
 public class DisAdvantageRollBehaviorTest {
 

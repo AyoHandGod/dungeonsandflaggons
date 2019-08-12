@@ -1,11 +1,10 @@
-package dragonsandflagons.core.dice;
+package dragonsandflagons.util.dice;
 
-import dragonsandflagons.core.dice.behavior.RollBehavior;
-import dragonsandflagons.core.dice.behavior.StandardRollBehavior;
+import dragonsandflagons.util.dice.behavior.RollBehavior;
+import dragonsandflagons.util.dice.behavior.StandardRollBehavior;
 
-import java.util.Random;
 
-public abstract class Dice {
+public class Dice {
 
     private RollBehavior rollBehavior;
     private int sides;
@@ -21,7 +20,7 @@ public abstract class Dice {
         rollBehavior = new StandardRollBehavior();
     }
 
-    public Dice(int sides, RollBehavior rollBehavior){
+    public Dice(int sides, RollBehavior rollBehavior) {
         this.sides = sides;
         this.rollBehavior = rollBehavior;
     }
@@ -37,4 +36,5 @@ public abstract class Dice {
     public void setRollBehavior(RollBehavior rollBehavior) {
         this.rollBehavior = rollBehavior;
     }
+
 }

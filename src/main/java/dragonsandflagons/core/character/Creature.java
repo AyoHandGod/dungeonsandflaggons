@@ -1,10 +1,9 @@
 package dragonsandflagons.core.character;
 
 import dragonsandflagons.core.character.abilities.AbilityType;
-import dragonsandflagons.core.character.characterclass.CharacterClass;
 import dragonsandflagons.core.character.race.Alignment;
 import dragonsandflagons.core.character.race.Race;
-import dragonsandflagons.core.dice.Dice;
+import dragonsandflagons.util.dice.Dice;
 
 import java.util.List;
 import java.util.Map;
